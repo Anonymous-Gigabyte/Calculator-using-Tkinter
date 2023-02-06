@@ -12,7 +12,7 @@ root=Tk()
 #*-----------------------*
 root.title("Simple Calculator ~By Vedant Chauhan")  
 root.resizable(0,0)
-e = Entry(root,font=('arial', '11', 'bold'), width=35,borderwidth=5)   
+e = Entry(root,font=('arial', '10', 'bold'), width=35,borderwidth=5)   
 e.grid(row=0,column=0,columnspan=3,padx=10,pady=10)
 
 #*------------------------------*
