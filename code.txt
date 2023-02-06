@@ -1,0 +1,136 @@
+# Calculator-using-tkinter
+# Calculator-using-Tkinter
+# Simple calculator using Tkinter in python
+# The sizes, fonts, background colour, etc. can be changed as per your need.
+
+from tkinter import *
+
+root=Tk()
+
+#*-----------------------*
+#  setting up the window
+#*-----------------------*
+root.title("Simple Calculator ~By Vedant Chauhan")  
+root.resizable(0,0)
+e = Entry(root,font=('arial', '11', 'bold'), width=35,borderwidth=5)   
+e.grid(row=0,column=0,columnspan=3,padx=10,pady=10)
+
+#*------------------------------*
+#  Making the buttons functional
+#*------------------------------*
+def button_click(number):
+    current = e.get()
+    e.delete(0,END)
+    e.insert(0, str(current) + str(number)) 
+    
+#*-------------------*
+#   Clear(C) Button
+#*-------------------*
+def button_clear():
+    e.delete(0,END)
+
+#---------------------*
+#  Adding the numbers
+#---------------------*
+def button_add():
+    first_number = e.get()
+    global f_num
+    global math
+    math = "addition"
+    f_num = int(first_number)
+    e.delete(0,END) 
+
+#--------------------------*
+#  Subtracting the numbers
+#--------------------------*
+def button_subtract():
+    first_number = e.get()
+    global f_num
+    global math
+    math = "subtraction"
+    f_num = int(first_number)
+    e.delete(0,END) 
+
+#-----------------------*
+#  Dividing the numbers
+#-----------------------*
+def button_divide():
+    first_number = e.get()
+    global f_num
+    global math
+    math = "division"
+    f_num = int(first_number)
+    e.delete(0,END) 
+
+#---------------------------*
+#  Multiplying the numbers
+#---------------------------*
+def button_multiply():
+    first_number = e.get()
+    global f_num
+    global math
+    math = "multiplication"
+    f_num = int(first_number)
+    e.delete(0,END) 
+    
+#---------------------*
+#  Equal(=) button
+#---------------------*
+def button_equal():
+    second_number = e.get()
+    e.delete(0,END)
+    if math=="addition":
+        e.insert(0,f_num+int(second_number))
+    if math=="subtraction":
+        e.insert(0,f_num-int(second_number))
+    if math=="multiplication":
+        e.insert(0,f_num*int(second_number))
+    if math=="division":
+        e.insert(0,float(f_num)/float(second_number))
+
+
+#------------------------*
+#  Defining the buttons
+#------------------------*
+bt1 = Button(root, text="1", padx=40,pady=20, command=lambda:button_click(1),borderwidth=3)
+bt2 = Button(root, text="2", padx=40,pady=20, command=lambda:button_click(2),borderwidth=3)
+bt3 = Button(root, text="3", padx=40,pady=20, command=lambda:button_click(3),borderwidth=3)
+bt4 = Button(root, text="4", padx=40,pady=20, command=lambda:button_click(4),borderwidth=3)
+bt5 = Button(root, text="5", padx=40,pady=20, command=lambda:button_click(5),borderwidth=3)
+bt6 = Button(root, text="6", padx=40,pady=20, command=lambda:button_click(6),borderwidth=3)
+bt7 = Button(root, text="7", padx=40,pady=20, command=lambda:button_click(7),borderwidth=3)
+bt8 = Button(root, text="8", padx=40,pady=20, command=lambda:button_click(8),borderwidth=3)
+bt9 = Button(root, text="9", padx=40,pady=20, command=lambda:button_click(9),borderwidth=3)
+bt0 = Button(root, text="0", padx=40,pady=20, command=lambda:button_click(0),borderwidth=3)
+bt_equal = Button(root, text="=", padx=41,pady=20,bg="blue",fg="white", command=button_equal,borderwidth=3)
+bt_clear = Button(root, text="C", padx=40,pady=20, command=button_clear,borderwidth=3)
+bt_add = Button(root, text="+", padx=40,pady=20, command=button_add,borderwidth=3)
+bt_sub = Button(root, text="-", padx=40,pady=20, command=button_subtract,borderwidth=3)
+bt_div = Button(root, text="/", padx=40,pady=20, command=button_divide,borderwidth=3)
+bt_product = Button(root, text="*", padx=40,pady=20, command=button_multiply,borderwidth=3)
+
+#*-------------------------------*
+#  Put the buttons on the screen
+#*-------------------------------*
+bt1.grid(row=3,column=0)
+bt2.grid(row=3,column=1)
+bt3.grid(row=3,column=2)
+
+bt4.grid(row=2,column=0)
+bt5.grid(row=2,column=1)
+bt6.grid(row=2,column=2)
+
+bt7.grid(row=1,column=0)
+bt8.grid(row=1,column=1)
+bt9.grid(row=1,column=2)
+
+bt0.grid(row=4,column=0)
+bt_equal.grid(row=4,column=1)
+bt_clear.grid(row=4,column=2)
+
+bt_add.grid(row=1,column=4)
+bt_sub.grid(row=2,column=4)
+bt_div.grid(row=3,column=4)
+bt_product.grid(row=4,column=4)
+
+root.mainloop()
