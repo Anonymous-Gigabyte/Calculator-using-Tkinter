@@ -1,7 +1,4 @@
-# Calculator-using-tkinter
 # Calculator-using-Tkinter
-# Simple calculator using Tkinter in python
-# The sizes, fonts, background colour, etc. can be changed as per your need.
 
 from tkinter import *
 
